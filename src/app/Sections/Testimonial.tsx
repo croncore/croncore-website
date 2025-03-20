@@ -2,13 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const testimonials = [
   {
     name: "Ryan Carter",
     username: "@ryanc_ai",
     text: "Neurova transformed our workflow with AI automation, saving us countless hours!",
-    image: "/images/t1.jpg", // Place in /public/avatars/
+    image: "/images/t1.jpg",
     rating: 5,
   },
   {
@@ -48,23 +49,60 @@ const testimonials = [
   },
 ];
 
+// Animation Variants
+const fadeInVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
 const TestimonialsSection: React.FC = () => {
   return (
-    <section id="testimonial" className="pt-20 py-16 bg-white">
+    <motion.section
+      id="testimonial"
+      className="pt-20 py-16 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
-        <p className="text-blue-500 text-sm font-semibold">• Testimonials</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+        <motion.p
+          className="text-blue-500 text-sm font-semibold"
+          variants={fadeInVariants}
+        >
+          • <span className="text-black text-[20px] mb-8"> Testimonials</span>
+        </motion.p>
+        <motion.h2
+          className="text-3xl md:text-4xl text-gray-900 mt-8"
+          variants={fadeInVariants}
+        >
           What our happy clients say <br className="hidden md:block" />
           about our services
-        </h2>
+        </motion.h2>
 
-        {/* Testimonials Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonials Grid with Staggered Animation */}
+        <motion.div
+          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+        >
           {testimonials.map((testimonial, index) => (
-            <div
+            <motion.div
               key={index}
               className="bg-gray-50 p-6 rounded-2xl shadow-md text-left transition hover:shadow-lg"
+              variants={fadeInVariants}
             >
               {/* User Info */}
               <div className="flex items-center space-x-4">
@@ -76,8 +114,12 @@ const TestimonialsSection: React.FC = () => {
                   className="rounded-full w-12 h-12"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">{testimonial.name}</h3>
-                  <p className="text-gray-600 text-sm">{testimonial.username}</p>
+                  <h3 className="text-lg font-semibold text-gray-900">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    {testimonial.username}
+                  </p>
                 </div>
               </div>
 
@@ -92,11 +134,11 @@ const TestimonialsSection: React.FC = () => {
                     <span key={i}>{star}</span>
                   ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
