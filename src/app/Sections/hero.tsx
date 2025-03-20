@@ -77,7 +77,7 @@ const HeroSection: React.FC = () => {
         </motion.span>
         <motion.span variants={fadeIn} custom={2} className="block">
           with our AI solutions
-          <span className="inline-flex items-center justify-center bg-white shadow-sm xl:p-3 p-1 rounded-xl align-middle mx-4">
+          {/* <span className="inline-flex items-center justify-center bg-white shadow-sm xl:p-3 p-1 rounded-xl align-middle mx-4">
             <Image
               src="/images/icon.png"
               alt="Lightning Icon"
@@ -85,7 +85,7 @@ const HeroSection: React.FC = () => {
               height={30}
               className="w-6 h-6 md:w-8 md:h-8"
             />
-          </span>
+          </span> */}
         </motion.span>
       </motion.h1>
 

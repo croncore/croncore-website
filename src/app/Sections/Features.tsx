@@ -1,37 +1,112 @@
 "use client";
 
 import React from "react";
-import { Send, MessageCircle, Shield, Database, Users, RefreshCw } from "lucide-react";
+import {
+  Send,
+  MessageCircle,
+  Shield,
+  Database,
+  Users,
+  RefreshCw,
+} from "lucide-react";
+import { motion } from "framer-motion";
 
 const features = [
-  { title: "AI-powered insights", description: "Analyze data in real-time to make smarter decisions faster", icon: <Send /> },
-  { title: "AI chatbots", description: "Engage customers with intelligent, human-like chatbot interactions", icon: <MessageCircle /> },
-  { title: "Automated workflows", description: "Streamline operations with AI-driven task automation", icon: <Shield /> },
-  { title: "Data protection", description: "Ensure security with encrypted AI models and compliance tools", icon: <Database /> },
-  { title: "AI-driven collaboration", description: "Enhance teamwork with smart recommendations and automation", icon: <Users /> },
-  { title: "Seamless integrations", description: "Connect AI with your favorite tools for a frictionless workflow", icon: <RefreshCw /> },
+  {
+    title: "AI for customer service",
+    description:
+      " Boost efficiency and empower your customer service team with AI.",
+    icon: <Send />,
+  },
+  {
+    title: "AI for finance",
+    description:
+      " Enhance financial success and business growth with data, AI, and automation.",
+    icon: <MessageCircle />,
+  },
+  {
+    title: " AI for marketing",
+    description:
+      "Deliver tailored customer experiences on alarge scale with our AI solutions.",
+    icon: <Shield />,
+  },
+  {
+    title: " AI for application modernization",
+    description:
+      "Upgrade your existing apps with AI and hybrid cloud technology.",
+    icon: <Database />,
+  },
+  {
+    title: "AI for human resources",
+    description:
+      "Transform HR with AI at its heart for improved business results.",
+    icon: <Users />,
+  },
+  {
+    title: "AI for IT operations",
+    description:
+      "Improve efficiency and reduce costs in techoperations with AI-driven automation.",
+    icon: <RefreshCw />,
+  },
 ];
+
+// Animation Variants
+const fadeInVariants = {
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
 
 const FeaturesSection: React.FC = () => {
   return (
-    <section className="py-16 bg-white">
+    <motion.section
+      className="py-16 bg-white"
+      id="features"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
-        <p className="text-blue-500 text-sm font-semibold">• Features</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+        <motion.p
+          className="text-blue-500 text-[20px]"
+          variants={fadeInVariants}
+        >
+          • <span className="text-black text-[20px] mb-8"> Features</span>
+        </motion.p>
+        <motion.h2
+          className="text-3xl md:text-4xl text-gray-900 mt-8"
+          variants={fadeInVariants}
+        >
           Powerful AI features to enhance <br className="hidden md:block" />
           your workflow
-        </h2>
+        </motion.h2>
 
-        {/* Features Grid */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Features Grid with Staggered Animation */}
+        <motion.div
+          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={containerVariants}
+        >
           {features.map((feature, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-gradient-to-b from-blue-50 to-white p-8 border-1 border-blue-200 rounded-2xl shadow-md text-center transition hover:shadow-lg  max-w-sm mx-auto flex flex-col items-center justify-center"
+              className="bg-gradient-to-b from-blue-50 to-white p-8 border-1 border-blue-200 rounded-2xl shadow-md text-center transition hover:shadow-lg max-w-sm mx-auto flex flex-col items-center justify-center"
+              variants={fadeInVariants}
             >
               {/* Icon */}
-              <span className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full shadow-md">
+              <span className="inline-flex items-center justify-center w-12 h-12 bg-[#578CFF] text-white rounded-full shadow-md">
                 {feature.icon}
               </span>
 
@@ -42,11 +117,11 @@ const FeaturesSection: React.FC = () => {
 
               {/* Description */}
               <p className="text-gray-600 mt-2">{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

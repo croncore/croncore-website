@@ -1,42 +1,64 @@
 "use client";
 
 import React from "react";
-import { Cpu, Zap, Database, Snowflake } from "lucide-react";
+import { motion } from "framer-motion";
+
+const textLines = [
+  "Help your business benefit from AI technologies—",
+  "like generative AI, natural language processing,",
+  "and machine learning—by applying them",
+  "the right way with Croncore.",
+];
+
+// Animation Variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3 }, // Staggered effect
+  },
+};
+
+const textVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const IntroductionSection: React.FC = () => {
   return (
-    <section className="py-16 bg-white">
+    <motion.section
+      className="py-16 bg-white"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
       <div className="container mx-auto px-6 text-center max-w-4xl">
-        {/* Small Header */}
-        <p className="text-blue-500 text-sm font-semibold">• Introduction</p>
+        {/* Small Header - Fixed Nesting Issue */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0, transition: { duration: 0.4 } }}
+        >
+          <span className="text-blue-500 text-[20px]">
+            • <span className="text-black mb-8 text-[20px]"> Introduction</span>
+          </span>
+        </motion.div>
 
-        {/* Main Content (Forcing 4 Lines) */}
-        <div className="text-gray-900 text-3xl md:text-3xl mt-3 leading-normal md:leading-relaxed">
-          <p className="break-words">
-            Neurova delivers{" "}
-            <span className="inline-flex items-center justify-center bg-blue-500 text-white px-2 py-1 rounded-lg shadow-md">
-              <Cpu className="w-5 h-5" />
-            </span>{" "}
-            AI solutions, from chatbot <br /> development to workflow{" "}<span className="inline-flex items-center justify-center bg-blue-500 text-white px-2 py-1 rounded-lg shadow-md">
-              <Zap className="w-5 h-5" />
-            </span>{" "}
-            automation.
-          </p>
-
-          <p className="">
-            We specialize in{" "}
-            <span className="inline-flex items-center justify-center bg-blue-500 text-white px-2 py-1 rounded-lg shadow-md">
-              <Database className="w-5 h-5" />
-            </span>{" "}
-            LLM development, AI <br /> consulting, and content to drive{" "}<span className="inline-flex items-center justify-center bg-blue-500 text-white px-2 py-1 rounded-lg shadow-md">
-              <Snowflake className="w-5 h-5" />
-            </span>{" "}
-            innovation.
-          </p>
-
-        </div>
+        {/* Main Content with Staggered Animation - Replaced <p> with <div> */}
+        <motion.div
+          className="text-gray-900 text-3xl md:text-3xl mt-8 leading-normal md:leading-relaxed"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {textLines.map((line, index) => (
+            <motion.div key={index} className="mb-2" variants={textVariants}>
+              {line}
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
