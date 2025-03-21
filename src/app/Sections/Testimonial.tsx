@@ -8,28 +8,28 @@ const testimonials = [
   {
     name: "Ryan Carter",
     username: "@ryanc_ai",
-    text: "Neurova transformed our workflow with AI automation, saving us countless hours!",
+    text: "Croncore transformed our workflow with AI automation, saving us countless hours!",
     image: "/images/t1.jpg",
     rating: 5,
   },
   {
     name: "Ethan James",
     username: "@ethanj",
-    text: "From automating tasks to optimizing workflows, Neurova made our business more efficient than ever by eliminating manual work and reducing errors significantly.",
+    text: "From automating tasks to optimizing workflows, Croncore made our business more efficient than ever by eliminating manual work and reducing errors significantly.",
     image: "/images/t2.jpg",
     rating: 5,
   },
   {
     name: "Jake Mitchell",
     username: "@jakem",
-    text: "Neurova our daily tool to bypass averages and reveal true insights, for the whole team!",
+    text: "Croncore our daily tool to bypass averages and reveal true insights, for the whole team!",
     image: "/images/t3.jpg",
     rating: 5,
   },
   {
     name: "Daniel Brooks",
     username: "@dbrooks",
-    text: "Smart, fast, and intuitive—Neurova simplifies AI automation like no other platform, enhancing scalability, reducing costs, and optimizing everyday operations with ease.",
+    text: "Smart, fast, and intuitive—Croncore simplifies AI automation like no other platform, enhancing scalability, reducing costs, and optimizing everyday operations with ease.",
     image: "/images/t4.jpg",
     rating: 5,
   },
@@ -43,7 +43,7 @@ const testimonials = [
   {
     name: "Sophia Reed",
     username: "@sophiareed",
-    text: "Neurova transformed our workflow with AI automation, saving us countless hours every week and improving overall team efficiency effortlessly.",
+    text: "Croncore transformed our workflow with AI automation, saving us countless hours every week and improving overall team efficiency effortlessly.",
     image: "/images/t2.jpg",
     rating: 5,
   },
@@ -80,7 +80,7 @@ const TestimonialsSection: React.FC = () => {
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
         <motion.p
-          className="text-blue-500 text-sm font-semibold"
+          className="text-blue-500 text-[20px]"
           variants={fadeInVariants}
         >
           • <span className="text-black text-[20px] mb-8"> Testimonials</span>

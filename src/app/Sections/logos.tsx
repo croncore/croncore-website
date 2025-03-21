@@ -9,7 +9,7 @@ const logos = [
     src: "/images/Stripe.svg",
     alt: "Company logo 2",
   },
-  { src: "/images/atlas.png", alt: "Company logo 3" },
+  // { src: "/images/Croncore.svg", alt: "Company logo 3" },
   { src: "/images/logoipsum4.svg", alt: "Company logo 4" },
   { src: "/images/logoipsum5.svg", alt: "Company logo 5" },
   { src: "/images/Google.svg", alt: "Company logo 6" },
@@ -18,7 +18,7 @@ const logos = [
 const InfiniteLogoSlider: React.FC = () => {
   return (
     <div className="relative overflow-hidden py-10 bg-white">
-      <div className="w-1/3 max-w-7xl mx-auto px-4 md:px-6">
+      <div className="w-[700px] max-w-7xl mx-auto px-4 md:px-6">
         <div className="w-full flex overflow-hidden">
           {/* Duplicate the logos to create a seamless loop */}
           <div className="flex gap-10 animate-scroll">

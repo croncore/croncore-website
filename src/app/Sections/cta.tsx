@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const fadeInVariants = {
@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
     >
       {/* Icon Animation */}
       <motion.div
-        className="flex items-center justify-center w-14 h-14 bg-white/20 rounded-xl mx-auto mb-4"
+        className="flex items-center justify-center w-14 h-14 rounded-xl mx-auto mb-4"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{
           opacity: 1,
@@ -42,7 +42,7 @@ const HeroSection: React.FC = () => {
           transition: { duration: 0.4, delay: 0.2 },
         }}
       >
-        <Zap className="text-white opacity-90 w-6 h-6" />
+        <h1 className="text-white text-4xl font-bold">Croncore</h1>
       </motion.div>
 
       {/* Text Animation */}
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
 
       {/* Button Animation */}
       <motion.button
-        className="mt-6 bg-white text-blue-600 flex items-center px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition"
+        className="mt-6 bg-white text-blue-600 cursor-pointer flex items-center px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition"
         variants={buttonVariants}
       >
         Get started <ArrowRight className="ml-2" size={18} />

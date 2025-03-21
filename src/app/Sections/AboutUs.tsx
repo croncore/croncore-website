@@ -42,17 +42,17 @@ const AboutUsSection: React.FC = () => {
               journey and AI expertise
             </h2>
             <p className="text-gray-600 mt-6 text-xl leading-relaxed">
-              Neurova is an AI-powered client acquisition platform <br />{" "}
+              Croncore is an AI-powered client acquisition platform <br />{" "}
               designed to help businesses streamline and optimize their <br />{" "}
               growth. With advanced automation, predictive analytics, <br /> and
-              intelligent lead management, Neurova empowers <br /> companies to
+              intelligent lead management, Croncore empowers <br /> companies to
               attract, nurture, and convert into loyal clients.
             </p>
 
             {/* Call to Action Button */}
             <motion.button
               variants={fadeInVariants}
-              className="mt-6 mb-40 flex items-center gap-2 px-6 py-3 bg-[#578CFF] text-white rounded-4xl font-semibold hover:bg-blue-500 transition"
+              className="mt-6 mb-40 flex items-center gap-2 px-6 py-3 cursor-pointer bg-[#578CFF] text-white rounded-4xl font-semibold hover:bg-blue-500 transition"
             >
               Get started →
             </motion.button>
@@ -67,7 +67,7 @@ const AboutUsSection: React.FC = () => {
           {[
             { value: "50K+", label: "Active Projects" },
             { value: "100K+", label: "Successful Conversions" },
-            { value: "20K", label: "Satisfied Clients" },
+            { value: "20K+", label: "Satisfied Clients" },
             { value: "10M+", label: "AI-Powered Decisions" },
           ].map((stat, index) => (
             <motion.div key={index} variants={fadeInVariants}>

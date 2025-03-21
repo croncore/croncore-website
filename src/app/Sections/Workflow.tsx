@@ -44,8 +44,8 @@ const WorkflowAutomationAndLLM = () => {
           className="relative bg-blue-50 rounded-3xl shadow-lg p-8 max-w-[450px] md:ml-11 space-y-6 border border-gray-200 text-left"
           variants={fadeInVariants}
         >
-          <div  className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold">Workflow automations</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-semibold">Workflow Automations</h2>
             <div className="flex items-center justify-center w-8 h-8 bg-[#578CFF] text-white rounded-full text-sm font-bold">
               03
             </div>
@@ -89,9 +89,11 @@ const WorkflowAutomationAndLLM = () => {
                 <li>• Figma</li>
               </ul>
             </div>
-            <div className="flex-1 bg-gray-100 p-3 rounded-lg">
-              <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-              <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+            <div className="flex-1 bg-gray-50 p-3 rounded-lg">
+              <div className="h-1 bg-gray-200 rounded w-3/4 mb-2"></div>
+              <div className="h-1 bg-gray-200 rounded w-1/2"></div>
+              <div className="h-1 bg-gray-200 rounded w-3/4 mt-2"></div>
+              <div className="h-1 bg-gray-200 rounded w-1/2 mt-2"></div>
               <div className="mt-2 flex space-x-2">
                 <div className="w-10 h-10 bg-gray-200 rounded-lg"></div>
                 <div className="w-10 h-10 bg-gray-200 rounded-lg"></div>
@@ -100,7 +102,7 @@ const WorkflowAutomationAndLLM = () => {
           </div>
 
           {/* CTA Button */}
-          <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
+          <button className="w-full flex items-center justify-center cursor-pointer space-x-2 px-4 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
             <span>Get Started</span>
           </button>
         </motion.div>
@@ -139,8 +141,8 @@ const WorkflowAutomationAndLLM = () => {
                 ></div>
               ))}
             </div>
-            <div className="mt-4 flex items-center space-x-2 bg-gray-100 p-3 rounded-lg border border-gray-300">
-              <Search className="w-5 h-5 text-gray-500" />
+            <div className="mt-4 flex items-center space-x- p-3 rounded-lg border border-gray-200">
+              <Search className="w-5 h-5 text-gray-500 mr-2" />
               <p className="text-gray-700">
                 What is capital of{" "}
                 <span className="font-bold">Netherlands</span>
@@ -149,7 +151,7 @@ const WorkflowAutomationAndLLM = () => {
           </div>
 
           {/* Generate AI Button */}
-          <button className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
+          <button className="w-full flex items-center justify-center cursor-pointer space-x-2 px-4 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
             <span>Generate AI</span>
             <Sparkles className="w-5 h-5" />
           </button>

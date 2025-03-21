@@ -77,14 +77,14 @@ const TeamSection: React.FC = () => {
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
         <motion.p
-          className="text-blue-500 text-sm font-semibold"
+          className="text-blue-500 text-[20px]"
           variants={fadeInVariants}
         >
           • <span className="text-black text-[20px] mb-8"> Team</span>
         </motion.p>
 
         <motion.h2
-          className="text-3xl md:text-4xl  text-gray-900 mt-2"
+          className="text-3xl md:text-4xl  text-gray-900 mt-8"
           variants={fadeInVariants}
         >
           Meet the experts behind our <br className="hidden md:block" />
@@ -108,8 +108,8 @@ const TeamSection: React.FC = () => {
                   src={member.image}
                   alt={member.name}
                   width={300}
-                  height={300}
-                  className="w-full h-64 object-cover"
+                  height={400}
+                  className="w-full h-80 object-contain"
                 />
               </div>
 

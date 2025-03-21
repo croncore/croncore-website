@@ -91,7 +91,7 @@ const PricingSection: React.FC = () => {
           <span className="text-blue-500 text-[20px]">
             • <span className="text-black text-[20px] mb-8">Pricing</span>{" "}
           </span>
-          <h2 className="text-3xl md:text-4xl text-gray-900 mt-2">
+          <h2 className="text-3xl md:text-4xl text-gray-900 mt-8">
             Flexible pricing plans for <br className="hidden md:block" />
             every business
           </h2>
@@ -128,7 +128,7 @@ const PricingSection: React.FC = () => {
 
               {/* Button */}
               <button
-                className={`mt-6 w-full py-3 rounded-4xl font-semibold transition ${
+                className={`mt-6 w-full py-3 rounded-4xl cursor-pointer font-semibold transition ${
                   plan.highlight
                     ? "bg-[#578CFF] text-white hover:bg-blue-500"
                     : "bg-gray-50 border-2 border-gray-100 text-gray-900 hover:bg-gray-100"

@@ -27,7 +27,7 @@ const textVariants = {
 const IntroductionSection: React.FC = () => {
   return (
     <motion.section
-      className="py-16 bg-white"
+      className="pb-8 pt-32 bg-white"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
