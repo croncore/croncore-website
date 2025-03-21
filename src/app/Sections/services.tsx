@@ -106,7 +106,7 @@ const ServicesSection = () => {
               </div>
 
               {/* Search Results */}
-              <p className="font-medium mb-2">
+              <p className="font-medium ml-2 mb-2 mt-5">
                 <span className="text-blue-600">• </span>Search Results
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -133,7 +133,7 @@ const ServicesSection = () => {
           {/* Bottom Icons */}
           <div
             id="llm"
-            className="flex justify-between items-center mt-4 p-3 bg-gray-100 rounded-lg"
+            className="flex justify-center gap-6 items-center p-3 mt-4 border-2 border-gray-100 rounded-2xl"
           >
             <User className="text-gray-500 w-6 h-6" />
             <Database className="text-gray-500 w-6 h-6" />
@@ -162,39 +162,39 @@ const ServicesSection = () => {
           </p>
 
           {/* Chatbot UI Box */}
-          <div className="bg-gray-100 p-4 rounded-xl border border-gray-300">
+          <div className=" p-4 rounded-xl border border-gray-300">
             {/* Header */}
             <div className="flex justify-between items-center mb-2">
-              <p className="text-gray-700 font-semibold">Neurova AI</p>
+              <p className="text-gray-700 font-semibold">Croncore AI</p>
               <MoreHorizontal className="text-gray-500 w-5 h-5" />
             </div>
 
             {/* Chat Input */}
-            <div className="p-3 bg-white rounded-lg border border-gray-300 text-gray-500">
+            <div className="p-10 bg-white rounded-lg border border-gray-300 text-gray-500">
               Just start creating •
             </div>
 
             {/* Generate AI Button */}
-            <button className="w-full mt-4 flex items-center justify-center space-x-2 px-4 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
+            <button className="w-full mt-4 flex items-center cursor-pointer justify-center space-x-2 px-3 py-3 bg-[#578CFF] text-white rounded-full hover:opacity-90 transition">
               <span>Generate AI</span>
               <Sparkles className="w-5 h-5" />
             </button>
 
             {/* Credits Left */}
-            <div className="flex items-center space-x-2 text-gray-600 mt-3">
+            <div className="flex items-center space-x-2 text-gray-600 mt-8">
               <Gem className="w-4 h-4 text-blue-500" />
               <p>30 credits left</p>
             </div>
 
             {/* Tags */}
-            <div className="flex space-x-2 mt-3">
-              <div className="px-3 py-1 text-sm bg-gray-200 rounded-lg">
+            <div className="flex space-x-2 mt-6">
+              <div className="px-3 py-1 text-sm border-1 border-gray-100  rounded-xl">
                 Audio & Video File
               </div>
-              <div className="px-3 py-1 text-sm bg-gray-200 rounded-lg">
+              <div className="px-3 py-1 text-smborder-1 border-gray-100  rounded-xl">
                 Logomark
               </div>
-              <div className="px-3 py-1 text-sm bg-gray-200 rounded-lg">
+              <div className="px-3 py-1 text-sm border-1 border-gray-100  rounded-xl">
                 Branding
               </div>
             </div>

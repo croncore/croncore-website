@@ -77,7 +77,7 @@ const HowItWorksSection: React.FC = () => {
               •{" "}
               <span className="text-black text-[20px] mb-8">How it works</span>
             </span>
-            <h2 className="text-3xl md:text-4xl text-gray-900 mt-2">
+            <h2 className="text-3xl md:text-4xl text-gray-900 mt-8">
               How AI solutions work
             </h2>
           </motion.div>

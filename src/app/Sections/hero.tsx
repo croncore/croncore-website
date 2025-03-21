@@ -45,7 +45,7 @@ const HeroSection: React.FC = () => {
             className="rounded-full border-2 border-white"
           />
           <Image
-            src="/images/alex.png"
+            src="/images/t1.png"
             alt="Alex"
             width={40}
             height={40}
@@ -104,7 +104,7 @@ const HeroSection: React.FC = () => {
 
       {/* Button */}
       <motion.button
-        className="mt-6 flex items-center gap-2 bg-[#578CFF] text-white px-6 py-3 rounded-full hover:bg-blue-700 transition text-lg"
+        className="mt-6 flex items-center gap-2 cursor-pointer bg-[#578CFF] text-white px-6 py-3 rounded-full hover:bg-blue-700 transition text-lg"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}

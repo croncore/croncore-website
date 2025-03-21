@@ -21,14 +21,6 @@ const Navbar = () => {
       <div className="flex items-center space-x-48 md:space-x-5 xl:space-x-64 lg:space-x-40">
         {/* Logo */}
         <div className="flex items-center">
-          {/* Added space-x-2 for spacing between images */}
-          <Image
-            src="/images/icon.png"
-            alt="Lightning Icon"
-            width={25}
-            height={25}
-            className="inline-block mt-2"
-          />
           <Image
             src="/images/Croncore.svg"
             alt="Croncore Logo"
@@ -42,32 +34,32 @@ const Navbar = () => {
         <div className="hidden md:flex space-x-8 text-gray-700">
           <button
             onClick={() => scrollToSection("services")}
-            className="hover:text-black transition"
+            className="hover:text-black transition cursor-pointer"
           >
             Services
           </button>
           <button
             onClick={() => scrollToSection("pricing")}
-            className="hover:text-black transition"
+            className="hover:text-black transition cursor-pointer"
           >
             Pricing
           </button>
           <button
             onClick={() => scrollToSection("testimonial")}
-            className="hover:text-black transition"
+            className="hover:text-black transition cursor-pointer"
           >
             Testimonial
           </button>
           <button
             onClick={() => scrollToSection("process")}
-            className="hover:text-black transition"
+            className="hover:text-black transition cursor-pointer"
           >
             Process
           </button>
         </div>
 
         {/* CTA Button */}
-        <button className="hidden md:flex items-center gap-2 bg-[#578CFF] text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+        <button className="hidden md:flex items-center gap-2 cursor-pointer bg-[#578CFF] text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
           Get started <ArrowRight size={16} />
         </button>
       </div>

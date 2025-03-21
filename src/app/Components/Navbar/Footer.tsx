@@ -22,7 +22,7 @@ const Footer = () => {
           <p className="text-gray-600 mt-2">
             AI powered solutions for automation and growth
           </p>
-          <button className="mt-4 flex items-center space-x-2 px-4 py-2 bg-[#578CFF] text-white rounded-4xl hover:bg-blue-500 transition">
+          <button className="mt-4 flex items-center cursor-pointer space-x-2 px-4 py-2 bg-[#578CFF] text-white rounded-4xl hover:bg-blue-500 transition">
             <span>Get started</span>
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -100,7 +100,7 @@ const Footer = () => {
                 onClick={() => scrollToSection("llm")}
                 className="hover:text-black transition"
               >
-                Workflow automations
+                Workflow Automations
               </button>
             </li>
             <li>
@@ -136,8 +136,7 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="border-t mt-6 pt-4 flex justify-between text-gray-500 text-sm">
-        <p>© Neurova template 2025</p>
-        <p>Error 404 • Insert Supply</p>
+        <p>© Croncore 2025</p>
       </div>
     </footer>
   );
