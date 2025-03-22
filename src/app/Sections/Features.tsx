@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import {
   Send,
   MessageCircle,
@@ -9,29 +9,38 @@ import {
   Users,
   RefreshCw,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 
+// Feature type
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  index: number;
+}
+
+// Features data
 const features = [
   {
     title: "AI for customer service",
     description:
-      " Boost efficiency and empower your customer service team with AI.",
+      "Boost efficiency and empower your customer service team with AI.",
     icon: <Send />,
   },
   {
     title: "AI for finance",
     description:
-      " Enhance financial success and business growth with data, AI, and automation.",
+      "Enhance financial success and business growth with data, AI, and automation.",
     icon: <MessageCircle />,
   },
   {
-    title: " AI for marketing",
+    title: "AI for marketing",
     description:
-      "Deliver tailored customer experiences on alarge scale with our AI solutions.",
+      "Deliver tailored customer experiences on a large scale with our AI solutions.",
     icon: <Shield />,
   },
   {
-    title: " AI for application modernization",
+    title: "AI for application modernization",
     description:
       "Upgrade your existing apps with AI and hybrid cloud technology.",
     icon: <Database />,
@@ -45,83 +54,97 @@ const features = [
   {
     title: "AI for IT operations",
     description:
-      "Improve efficiency and reduce costs in techoperations with AI-driven automation.",
+      "Improve efficiency and reduce costs in tech operations with AI-driven automation.",
     icon: <RefreshCw />,
   },
 ];
 
-// Animation Variants
-const fadeInVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
-  },
-};
-
-const containerVariants = {
+// Smoother & Faster Animation Variant
+const fadeIn = (delay: number) => ({
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    y: 0,
+    transition: {
+      delay,
+      duration: 0.3, // faster but smooth
+      ease: "easeInOut",
+    },
   },
+});
+
+// Card Component
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  title,
+  description,
+  icon,
+  index,
+}) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) controls.start("visible");
+  }, [isInView, controls]);
+
+  return (
+    <motion.div
+      ref={ref}
+      variants={fadeIn(index * 0.1)} // stagger with index
+      initial="hidden"
+      animate={controls}
+      className="bg-gradient-to-b from-blue-50 to-white p-8 border border-blue-100 rounded-2xl shadow-sm text-center hover:shadow-lg transition max-w-sm mx-auto flex flex-col items-center justify-center"
+    >
+      <span className="inline-flex items-center justify-center w-12 h-12 bg-[#578CFF] text-white rounded-full shadow-md">
+        {icon}
+      </span>
+      <h3 className="text-xl font-semibold text-gray-900 mt-4">{title}</h3>
+      <p className="text-gray-600 mt-2">{description}</p>
+    </motion.div>
+  );
 };
 
 const FeaturesSection: React.FC = () => {
   return (
-    <motion.section
-      className="py-16 bg-white"
-      id="features"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-    >
+    <section className="py-16 bg-white" id="features">
       <div className="container mx-auto px-6 text-center">
-        {/* Section Header */}
+        {/* Header */}
         <motion.p
           className="text-blue-500 text-[20px]"
-          variants={fadeInVariants}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.1 }}
+          viewport={{ once: true }}
         >
           • <span className="text-black text-[20px] mb-8"> Features</span>
         </motion.p>
+
         <motion.h2
           className="text-3xl md:text-4xl text-gray-900 mt-8"
-          variants={fadeInVariants}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.1 }}
+          viewport={{ once: true }}
         >
           Powerful AI features to enhance <br className="hidden md:block" />
           your workflow
         </motion.h2>
 
-        {/* Features Grid with Staggered Animation */}
-        <motion.div
-          className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-        >
+        {/* Feature Cards */}
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
-            <motion.div
+            <FeatureCard
               key={index}
-              className="bg-gradient-to-b from-blue-50 to-white p-8 border-1 border-blue-200 rounded-2xl shadow-md text-center transition hover:shadow-lg max-w-sm mx-auto flex flex-col items-center justify-center"
-              variants={fadeInVariants}
-            >
-              {/* Icon */}
-              <span className="inline-flex items-center justify-center w-12 h-12 bg-[#578CFF] text-white rounded-full shadow-md">
-                {feature.icon}
-              </span>
-
-              {/* Title */}
-              <h3 className="text-xl font-semibold text-gray-900 mt-4">
-                {feature.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-600 mt-2">{feature.description}</p>
-            </motion.div>
+              title={feature.title}
+              description={feature.description}
+              icon={feature.icon}
+              index={index}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

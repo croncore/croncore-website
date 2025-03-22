@@ -86,9 +86,9 @@ const HowItWorksSection: React.FC = () => {
           <motion.div className="mt-8 relative" variants={staggerContainer}>
             {/* Animated Vertical Line */}
             <motion.span
-              className="absolute w-0.5 bg-blue-500 left-[-13px] top-2 bottom-0"
+              className="absolute w-0.5 bg-blue-500 left-[-13px] top-2 bottom-[30px]"
               variants={drawLineVariant}
-            ></motion.span>
+            />
 
             {/* Steps */}
             {[

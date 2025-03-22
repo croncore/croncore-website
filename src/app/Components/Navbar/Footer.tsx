@@ -5,7 +5,7 @@ import { scrollToSection } from "../scrollToSection";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white text-black p-10 md:p-16">
+    <footer className="w-full bg-white text-black pt-10 md:pt-16 pb-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Left Section */}
         <div className="">
@@ -16,7 +16,7 @@ const Footer = () => {
               alt="Croncore Logo"
               width={150}
               height={150}
-              className="inline-block"
+              className="inline-block cursor-pointer"
             />
           </div>
           <p className="text-gray-600 mt-2">
@@ -35,7 +35,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("about")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 About us
               </button>
@@ -43,7 +43,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("services")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Services
               </button>
@@ -51,23 +51,23 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("features")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Features
               </button>
             </li>
             <li>
               <button
-                onClick={() => scrollToSection("pricing")}
-                className="hover:text-black transition"
+                onClick={() => scrollToSection("blogs")}
+                className="hover:text-black transition cursor-pointer"
               >
-                Pricing
+                Blogs
               </button>
             </li>
             <li>
               <button
                 onClick={() => scrollToSection("testimonial")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Testimonial
               </button>
@@ -82,7 +82,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("services")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Generative AI
               </button>
@@ -90,7 +90,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("services")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Conversational Agents
               </button>
@@ -98,7 +98,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("llm")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 Workflow Automations
               </button>
@@ -106,7 +106,7 @@ const Footer = () => {
             <li>
               <button
                 onClick={() => scrollToSection("llm")}
-                className="hover:text-black transition"
+                className="hover:text-black transition cursor-pointer"
               >
                 LLM Integrations
               </button>
@@ -135,8 +135,21 @@ const Footer = () => {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t mt-6 pt-4 flex justify-between text-gray-500 text-sm">
-        <p>© Croncore 2025</p>
+      <div className="border-t mx-auto max-w-6xl border-gray-300 mt-6 pt-4 pb-6">
+        <div className="  px-4 flex flex-col md:flex-row items-center justify-between text-sm text-gray-400 text-center md:text-left">
+          <p>© 2025 CRONCORE. All rights reserved</p>
+          <div className="flex space-x-6 mt-2 md:mt-0">
+            <a href="#" className="hover:text-black transition">
+              Privacy Policy
+            </a>
+            <a href="#" className="hover:text-black transition">
+              Terms of Service
+            </a>
+            <a href="#" className="hover:text-black transition">
+              Cookie Settings
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

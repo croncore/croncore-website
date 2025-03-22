@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import CountUp from "react-countup";
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -10,6 +11,16 @@ const fadeInVariants = {
 };
 
 const AboutUsSection: React.FC = () => {
+  const statsRef = useRef(null);
+  const isInView = useInView(statsRef, { once: true });
+
+  const stats = [
+    { value: 50, suffix: "K+", label: "Active Projects" },
+    { value: 100, suffix: "K+", label: "Successful Conversions" },
+    { value: 20, suffix: "K+", label: "Satisfied Clients" },
+    { value: 10, suffix: "M+", label: "AI-Powered Decisions" },
+  ];
+
   return (
     <motion.section
       className="py-16 bg-white"
@@ -42,8 +53,8 @@ const AboutUsSection: React.FC = () => {
               journey and AI expertise
             </h2>
             <p className="text-gray-600 mt-6 text-xl leading-relaxed">
-              Croncore is an AI-powered client acquisition platform <br />{" "}
-              designed to help businesses streamline and optimize their <br />{" "}
+              Croncore is an AI-powered client acquisition platform <br />
+              designed to help businesses streamline and optimize their <br />
               growth. With advanced automation, predictive analytics, <br /> and
               intelligent lead management, Croncore empowers <br /> companies to
               attract, nurture, and convert into loyal clients.
@@ -61,17 +72,17 @@ const AboutUsSection: React.FC = () => {
 
         {/* Stats Section */}
         <motion.div
+          ref={statsRef}
           className="mt-16 grid grid-cols-2 sm:grid-cols-4 text-center gap-8"
           variants={fadeInVariants}
         >
-          {[
-            { value: "50K+", label: "Active Projects" },
-            { value: "100K+", label: "Successful Conversions" },
-            { value: "20K+", label: "Satisfied Clients" },
-            { value: "10M+", label: "AI-Powered Decisions" },
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <motion.div key={index} variants={fadeInVariants}>
-              <h3 className="text-6xl text-gray-900">{stat.value}</h3>
+              <h3 className="text-6xl text-gray-900">
+                {isInView && (
+                  <CountUp end={stat.value} duration={2} suffix={stat.suffix} />
+                )}
+              </h3>
               <p className="text-gray-600 mt-1">{stat.label}</p>
             </motion.div>
           ))}

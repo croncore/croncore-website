@@ -26,7 +26,7 @@ const Navbar = () => {
             alt="Croncore Logo"
             width={150}
             height={150}
-            className="inline-block"
+            className="inline-block cursor-pointer"
           />
         </div>
 
@@ -39,10 +39,10 @@ const Navbar = () => {
             Services
           </button>
           <button
-            onClick={() => scrollToSection("pricing")}
+            onClick={() => scrollToSection("blogs")}
             className="hover:text-black transition cursor-pointer"
           >
-            Pricing
+            Blogs
           </button>
           <button
             onClick={() => scrollToSection("testimonial")}
