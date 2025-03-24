@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 
+// Team member data
 const teamMembers = [
   {
     name: "Muzamal Hussain",
@@ -48,31 +49,41 @@ const teamMembers = [
   },
 ];
 
+// Animation variants
 const fadeInVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { duration: 0.6, ease: "easeOut" },
   },
 };
 
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: {},
   visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: {
+      staggerChildren: 0.2,
+    },
   },
 };
 
 const TeamSection: React.FC = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) controls.start("visible");
+  }, [inView, controls]);
+
   return (
     <motion.section
       className="py-16 bg-white"
+      ref={ref}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate={controls}
+      variants={containerVariants}
     >
       <div className="container mx-auto px-6 text-center">
         {/* Section Header */}
@@ -84,14 +95,14 @@ const TeamSection: React.FC = () => {
         </motion.p>
 
         <motion.h2
-          className="text-3xl md:text-4xl  text-gray-900 mt-8"
+          className="text-3xl md:text-4xl text-gray-900 mt-8"
           variants={fadeInVariants}
         >
           Meet the experts behind our <br className="hidden md:block" />
           premium AI solutions
         </motion.h2>
 
-        {/* Team Grid with Staggered Animation */}
+        {/* Team Grid with fade-in cards */}
         <motion.div
           className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
           variants={containerVariants}

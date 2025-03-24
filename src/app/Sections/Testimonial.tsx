@@ -1,10 +1,20 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView, useAnimation } from "framer-motion";
 
-const testimonials = [
+// Type for a single testimonial
+type Testimonial = {
+  name: string;
+  username: string;
+  text: string;
+  image: string;
+  rating: number;
+};
+
+// Testimonial data
+const testimonials: Testimonial[] = [
   {
     name: "Ryan Carter",
     username: "@ryanc_ai",
@@ -49,36 +59,46 @@ const testimonials = [
   },
 ];
 
-// Animation Variants
+// Fade-in animation
 const fadeInVariants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
-
-const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// Staggering wrapper
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
   },
 };
 
 const TestimonialsSection: React.FC = () => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-100px" });
+  const controls = useAnimation();
+
+  useEffect(() => {
+    if (inView) controls.start("visible");
+  }, [inView, controls]);
+
   return (
     <motion.section
       id="testimonial"
       className="pt-20 py-16 bg-white"
+      ref={ref}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+      animate={controls}
+      variants={containerVariants}
     >
       <div className="container mx-auto px-6 text-center">
-        {/* Section Header */}
+        {/* Header */}
         <motion.p
           className="text-blue-500 text-[20px]"
           variants={fadeInVariants}
@@ -93,7 +113,7 @@ const TestimonialsSection: React.FC = () => {
           about our services
         </motion.h2>
 
-        {/* Testimonials Grid with Staggered Animation */}
+        {/* Cards */}
         <motion.div
           className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
@@ -104,7 +124,7 @@ const TestimonialsSection: React.FC = () => {
               className="bg-gray-50 p-6 rounded-2xl shadow-md text-left transition hover:shadow-lg"
               variants={fadeInVariants}
             >
-              {/* User Info */}
+              {/* Profile */}
               <div className="flex items-center space-x-4">
                 <Image
                   src={testimonial.image}
@@ -123,10 +143,10 @@ const TestimonialsSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Testimonial Text */}
+              {/* Text */}
               <p className="text-gray-700 mt-4">{testimonial.text}</p>
 
-              {/* ⭐ Star Rating (Black Stars) */}
+              {/* Rating */}
               <div className="flex mt-4 text-2xl space-x-1 text-black">
                 {Array(testimonial.rating)
                   .fill("★")
