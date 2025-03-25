@@ -7,46 +7,46 @@ import { ArrowRight } from "lucide-react";
 const BlogSection = () => {
   const blogData = [
     {
-      image: "/Images/blog1.jpeg",
+      image: "/images/blog1.jpeg",
       category: "Design",
       readTime: "5 min read",
       title: "Innovative Design Systems for Better User Experiences",
       description:
         "Learn how Croncore's design system can revolutionize the way you create user interfaces.",
-      authorImage: "/Images/john.png",
+      authorImage: "/images/john.png",
       authorName: "John Doe",
       date: "19 Jun, 2024",
     },
     {
-      image: "/Images/blog2.jpeg",
+      image: "/images/blog2.jpeg",
       category: "Management",
       readTime: "10 min read",
       title: "Bill Walsh Leadership Lessons",
       description:
         "Bill Walsh’s experience as a leader and a coach can help you build better management skills.",
-      authorImage: "/Images/alex.png",
+      authorImage: "/images/alex.png",
       authorName: "Alex Doe",
       date: "11 Jul, 2024",
     },
     {
-      image: "/Images/blog3.jpeg",
+      image: "/images/blog3.jpeg",
       category: "Technology",
       readTime: "7 min read",
       title: "Top 10 Emerging Technologies in 2024",
       description:
         "Explore the top technologies that are making waves in the tech industry this year.",
-      authorImage: "/Images/john.png",
+      authorImage: "/images/john.png",
       authorName: "Alice Smith",
       date: "21 Aug, 2024",
     },
     {
-      image: "/Images/blog4.jpeg",
+      image: "/images/blog4.jpeg",
       category: "Marketing",
       readTime: "8 min read",
       title: "Effective Marketing Strategies for Ecommerce",
       description:
         "Boost your ecommerce business with these proven marketing strategies from the experts.",
-      authorImage: "/Images/alex.png",
+      authorImage: "/images/alex.png",
       authorName: "David Brown",
       date: "29 Sep, 2024",
     },
