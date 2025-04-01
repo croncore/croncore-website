@@ -11,17 +11,20 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Use the version compatible with your Next.js app
+          node-version: '18'
       - name: Install Dependencies
         run: npm install
       - name: Build Next.js App
         run: npm run build
-      - name: Deploy to Namecheap
+      - name: Debug SSH Connection
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H server195.web-hosting.com >> ~/.ssh/known_hosts
+          ssh -i ~/.ssh/id_rsa -p 21098 cronknlw@server195.web-hosting.com -v "echo SSH connection successful"
+      - name: Deploy to Namecheap
+        run: |
           rsync -avz -e "ssh -p 21098" .next/ cronknlw@server195.web-hosting.com:/home/cronknlw/public_html/.next
           rsync -avz -e "ssh -p 21098" public/ cronknlw@server195.web-hosting.com:/home/cronknlw/public_html/public
           rsync -avz -e "ssh -p 21098" package.json cronknlw@server195.web-hosting.com:/home/cronknlw/public_html/
