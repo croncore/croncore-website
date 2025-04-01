@@ -35,7 +35,7 @@ const HowItWorksSection: React.FC = () => {
       whileInView="visible"
       viewport={{ once: true }}
     >
-      <div className="container mx-auto px-6 flex flex-col-reverse xl:flex-row gap-32">
+      <div className="container mx-auto px-6 flex flex-col-reverse xl:flex-row md:gap-40 gap-20">
         {/* Left Side - Testimonial */}
         <motion.div variants={fadeInUp} className="text-left">
           {/* Star Rating */}
@@ -47,24 +47,24 @@ const HowItWorksSection: React.FC = () => {
 
           {/* Testimonial Text */}
           <p className="text-2xl md:text-3xl font-medium text-gray-900 mt-4 leading-relaxed">
-            The AI-driven automation has <br /> transformed our workflow. It’s
-            intuitive, <br /> efficient, and highly customizable.
+            Croncore’s AI-driven automation has completely{" "}
+            <br className="hidden lg:block" /> transformed our
+            workflow—it&apos;s intuitive, efficient, and perfectly tailored to
+            our needs.
           </p>
 
           {/* User Info */}
           <div className="flex items-center mt-6 space-x-4">
             <Image
-              src="/images/t1.jpg"
+              src="/images/t1.png"
               alt="Sophia Reed"
               width={50}
               height={50}
               className="rounded-full w-12 h-12"
             />
             <div>
-              <h3 className="text-lg font-semibold text-gray-900">
-                Sophia Reed
-              </h3>
-              <p className="text-gray-600 text-sm">Founder, NexaTech</p>
+              <h3 className="text-lg font-semibold text-gray-900">Ahmed</h3>
+              <p className="text-gray-600 text-sm">Manager, Zed Exotices</p>
             </div>
           </div>
         </motion.div>
@@ -83,7 +83,10 @@ const HowItWorksSection: React.FC = () => {
           </motion.div>
 
           {/* Steps with Animated Vertical Line */}
-          <motion.div className="mt-8 relative" variants={staggerContainer}>
+          <motion.div
+            className="mt-8 relative ml-5"
+            variants={staggerContainer}
+          >
             {/* Animated Vertical Line */}
             <motion.span
               className="absolute w-0.5 bg-blue-500 left-[-13px] top-2 bottom-[30px]"
@@ -93,19 +96,19 @@ const HowItWorksSection: React.FC = () => {
             {/* Steps */}
             {[
               {
-                title: "Select a plan",
+                title: "Share Your Goals",
                 description:
-                  "Tell us exactly what you need. Our AI-powered system starts optimizing right away.",
+                  "Tell us about your business needs and objectives—Croncore’s AI experts will start crafting the right solution for you.",
               },
               {
                 title: "Customize your experience",
                 description:
-                  "Adjust settings to fit your specific workflow and business needs effortlessly.",
+                  "We design and tailor AI systems that align perfectly with your workflows, industry, and operational structure.",
               },
               {
                 title: "Automate and scale",
                 description:
-                  "Leverage AI automation to boost productivity, streamline tasks, and drive growth.",
+                  " Implement powerful AI automation to streamline tasks, boost productivity, and scale your business seamlessly.",
               },
             ].map((step, index) => (
               <motion.div
@@ -128,7 +131,9 @@ const HowItWorksSection: React.FC = () => {
                   <h3 className="text-lg font-semibold text-gray-900">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 mt-1">{step.description}</p>
+                  <p className="text-gray-600 w-full mt-1">
+                    {step.description}
+                  </p>
                 </div>
               </motion.div>
             ))}

@@ -118,7 +118,7 @@ const BlogSection = () => {
         {/* Show More Button */}
         <div className="flex justify-center mt-10">
           <motion.button
-            className="mt-6 flex items-center gap-2 cursor-pointer bg-[#578CFF] text-white px-6 py-3 rounded-full text-lg"
+            className="mt-2 flex items-center cursor-pointer bg-[#578CFF] text-white px-6 py-3 rounded-full text-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
