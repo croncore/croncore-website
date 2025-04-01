@@ -3,12 +3,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const textLines = [
-  "Help your business benefit from AI technologies—",
-  "like generative AI, natural language processing,",
-  "and machine learning—by applying them",
-  "the right way with Croncore.",
-];
+const textContent = (
+  <>
+    Unlock the full potential of AI with Croncore
+    <br className="hidden lg:block" />
+    —leveraging generative AI, natural language
+    <br className="hidden lg:block" />
+    processing, and machine learning to solve
+    <br className="hidden lg:block" />
+    real business challenges the right way.
+  </>
+);
 
 // Animation Variants
 const containerVariants = {
@@ -45,17 +50,15 @@ const IntroductionSection: React.FC = () => {
 
         {/* Main Content with Staggered Animation - Replaced <p> with <div> */}
         <motion.div
-          className="text-gray-900 text-3xl md:text-3xl mt-8 leading-normal md:leading-relaxed"
+          className="text-gray-900 text-2xl md:text-3xl mt-8 leading-normal md:leading-relaxed"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {textLines.map((line, index) => (
-            <motion.div key={index} className="mb-2" variants={textVariants}>
-              {line}
-            </motion.div>
-          ))}
+          <motion.div className="mb-2" variants={textVariants}>
+            {textContent}
+          </motion.div>
         </motion.div>
       </div>
     </motion.section>

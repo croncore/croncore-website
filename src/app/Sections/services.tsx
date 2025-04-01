@@ -48,7 +48,8 @@ const ServicesSection = () => {
         className="text-3xl md:text-[42px] mt-8 mb-24"
         variants={fadeInVariants}
       >
-        Explore our AI solutions tailored for your <br />
+        Explore our AI solutions tailored for your
+        <br className="hidden lg:block" />
         business needs
       </motion.h1>
 

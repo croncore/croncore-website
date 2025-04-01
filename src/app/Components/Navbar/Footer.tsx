@@ -6,9 +6,9 @@ import { scrollToSection } from "../scrollToSection";
 const Footer = () => {
   return (
     <footer className="w-full bg-white text-black pt-10 md:pt-16 pb-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
         {/* Left Section */}
-        <div className="">
+        <div className="ml-10 md:ml-0">
           <div className="flex items-center">
             {/* Added space-x-2 for spacing between images */}
             <Image
@@ -30,8 +30,8 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-semibold mb-3">Quick links</h3>
-          <ul className="space-y-4 text-gray-600">
+          <h3 className="font-semibold mb-3 ml-8 md:ml-0">Quick links</h3>
+          <ul className="space-y-4 text-gray-600 ml-8 md:ml-0">
             <li>
               <button
                 onClick={() => scrollToSection("about")}
@@ -77,12 +77,12 @@ const Footer = () => {
 
         {/* Services */}
         <div>
-          <h3 className="font-semibold mb-3">Services</h3>
-          <ul className="space-y-4 text-gray-600">
+          <h3 className="font-semibold mb-3 ml-10 md:ml-0">Services</h3>
+          <ul className="space-y-4 text-gray-600 ml-10 md:ml-0">
             <li>
               <button
                 onClick={() => scrollToSection("services")}
-                className="hover:text-black transition cursor-pointer"
+                className="hover:text-black transition cursor-pointer  "
               >
                 Generative AI
               </button>
@@ -116,8 +116,8 @@ const Footer = () => {
 
         {/* Follow Us */}
         <div>
-          <h3 className="font-semibold mb-3">Follow us</h3>
-          <ul className="space-y-4 text-gray-600">
+          <h3 className="font-semibold mb-3 ml-8 md:ml-0">Follow us</h3>
+          <ul className="space-y-4 text-gray-600 ml-8 md:ml-0">
             <li>
               <a href="#">Instagram</a>
             </li>

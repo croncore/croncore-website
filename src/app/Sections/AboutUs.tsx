@@ -4,6 +4,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import CountUp from "react-countup";
+import { ArrowRight } from "lucide-react";
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -39,7 +40,7 @@ const AboutUsSection: React.FC = () => {
               alt="Team working on AI project"
               width={500}
               height={500}
-              className="rounded-3xl shadow-lg"
+              className="rounded-3xl shadow-lg my-16 md:my-0"
             />
           </motion.div>
 
@@ -53,19 +54,22 @@ const AboutUsSection: React.FC = () => {
               journey and AI expertise
             </h2>
             <p className="text-gray-600 mt-6 text-xl leading-relaxed">
-              Croncore is an AI-powered client acquisition platform <br />
-              designed to help businesses streamline and optimize their <br />
-              growth. With advanced automation, predictive analytics, <br /> and
-              intelligent lead management, Croncore empowers <br /> companies to
-              attract, nurture, and convert into loyal clients.
+              Croncore is an AI-powered client acquisition platform{" "}
+              <br className="hidden lg:block" />
+              designed to help businesses streamline and optimize their{" "}
+              <br className="hidden lg:block" />
+              growth. With advanced automation, predictive analytics,{" "}
+              <br className="hidden lg:block" /> and intelligent lead
+              management, Croncore empowers <br className="hidden lg:block" />{" "}
+              companies to attract, nurture, and convert into loyal clients.
             </p>
 
             {/* Call to Action Button */}
             <motion.button
               variants={fadeInVariants}
-              className="mt-6 mb-40 flex items-center gap-2 px-6 py-3 cursor-pointer bg-[#578CFF] text-white rounded-4xl font-semibold hover:bg-blue-500 transition"
+              className="mt-6 mb-20 flex items-center gap-2 px-6 py-3 cursor-pointer bg-[#578CFF] text-white rounded-4xl font-semibold hover:bg-blue-500 transition"
             >
-              Get started →
+              Get started <ArrowRight size={20} />
             </motion.button>
           </motion.div>
         </div>
@@ -73,12 +77,12 @@ const AboutUsSection: React.FC = () => {
         {/* Stats Section */}
         <motion.div
           ref={statsRef}
-          className="mt-16 grid grid-cols-2 sm:grid-cols-4 text-center gap-8"
+          className="md:mt-16 grid grid-cols-2 sm:grid-cols-4 mr-4 md:mr-0 text-center gap-8"
           variants={fadeInVariants}
         >
           {stats.map((stat, index) => (
             <motion.div key={index} variants={fadeInVariants}>
-              <h3 className="text-6xl text-gray-900">
+              <h3 className="md:text-6xl text-4xl text-gray-900">
                 {isInView && (
                   <CountUp end={stat.value} duration={2} suffix={stat.suffix} />
                 )}

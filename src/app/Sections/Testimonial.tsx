@@ -16,47 +16,47 @@ type Testimonial = {
 // Testimonial data
 const testimonials: Testimonial[] = [
   {
-    name: "Ryan Carter",
-    username: "@ryanc_ai",
-    text: "Croncore transformed our workflow with AI automation, saving us countless hours!",
-    image: "/images/t1.jpg",
+    name: "Ahmed",
+    username: "@Zed_Exotices",
+    text: "Croncore transformed our workflow with powerful AI automation—generating real results and saving us countless hours!",
+    image: "/images/t1.png",
     rating: 5,
   },
   {
-    name: "Ethan James",
-    username: "@ethanj",
-    text: "From automating tasks to optimizing workflows, Croncore made our business more efficient than ever by eliminating manual work and reducing errors significantly.",
-    image: "/images/t2.jpg",
+    name: "David Bluman",
+    username: "@blumandav",
+    text: "From automating repetitive tasks to integrating advanced LLMs, Croncore optimized our entire operation—cutting errors and boosting efficiency like never before.",
+    image: "/images/t1.png",
     rating: 5,
   },
   {
-    name: "Jake Mitchell",
-    username: "@jakem",
-    text: "Croncore our daily tool to bypass averages and reveal true insights, for the whole team!",
-    image: "/images/t3.jpg",
+    name: "Vascore",
+    username: "@vascoreis",
+    text: "Croncore is our go-to AI partner—whether it's conversational bots, custom workflows, or actionable insights, it empowers our team daily.",
+    image: "/images/t1.png",
     rating: 5,
   },
-  {
-    name: "Daniel Brooks",
-    username: "@dbrooks",
-    text: "Smart, fast, and intuitive—Croncore simplifies AI automation like no other platform, enhancing scalability, reducing costs, and optimizing everyday operations with ease.",
-    image: "/images/t4.jpg",
-    rating: 5,
-  },
-  {
-    name: "Liam Foster",
-    username: "@liamf",
-    text: "The AI chatbot integration is a game-changer—it feels like having a 24/7 assistant!",
-    image: "/images/t1.jpg",
-    rating: 5,
-  },
-  {
-    name: "Sophia Reed",
-    username: "@sophiareed",
-    text: "Croncore transformed our workflow with AI automation, saving us countless hours every week and improving overall team efficiency effortlessly.",
-    image: "/images/t2.jpg",
-    rating: 5,
-  },
+  // {
+  //   name: "Daniel Brooks",
+  //   username: "@dbrooks",
+  //   text: "Smart, fast, and intuitive—Croncore simplifies AI automation like no other platform, enhancing scalability, reducing costs, and optimizing everyday operations with ease.",
+  //   image: "/images/t4.jpg",
+  //   rating: 5,
+  // },
+  // {
+  //   name: "Liam Foster",
+  //   username: "@liamf",
+  //   text: "The AI chatbot integration is a game-changer—it feels like having a 24/7 assistant!",
+  //   image: "/images/t1.jpg",
+  //   rating: 5,
+  // },
+  // {
+  //   name: "Sophia Reed",
+  //   username: "@sophiareed",
+  //   text: "Croncore transformed our workflow with AI automation, saving us countless hours every week and improving overall team efficiency effortlessly.",
+  //   image: "/images/t2.jpg",
+  //   rating: 5,
+  // },
 ];
 
 // Fade-in animation
@@ -91,7 +91,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <motion.section
       id="testimonial"
-      className="pt-20 py-16 bg-white"
+      className="pt-20 py-32 bg-white"
       ref={ref}
       initial="hidden"
       animate={controls}

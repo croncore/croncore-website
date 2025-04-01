@@ -82,10 +82,10 @@ const Navbar = () => {
             Services
           </button>
           <button
-            onClick={() => scrollToSection("pricing")}
+            onClick={() => scrollToSection("blogs")}
             className="py-2 hover:text-black transition"
           >
-            Pricing
+            Blogs
           </button>
           <button
             onClick={() => scrollToSection("testimonial")}
