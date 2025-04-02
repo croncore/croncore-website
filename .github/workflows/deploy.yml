@@ -1,28 +1,34 @@
-name: Deploy Next.js to Namecheap Main
+name: Deploy to Namecheap FTP
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Adjust if your Next.js app requires a different version
-      - name: Install Dependencies
+          node-version: 18
+
+      - name: Install dependencies
         run: npm install
-      - name: Build Next.js App
-        run: npm run build  # This will generate the `out` folder due to `output: 'export'`
-      - name: Debug SSH Connection
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H server195.web-hosting.com >> ~/.ssh/known_hosts
-          ssh -i ~/.ssh/id_rsa -p 21098 cronknlw@server195.web-hosting.com -v "echo SSH connection successful"
-      - name: Deploy to Namecheap
-        run: |
-          rsync -avz -e "ssh -p 21098" out/ cronknlw@server195.web-hosting.com:/home/cronknlw/public_html/
+
+      - name: Build site (includes static export)
+        run: npm run build
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out
+          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
